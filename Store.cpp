@@ -128,48 +128,30 @@ void Store::productSearch(string str)
 *************************************************************************/
 void Store::addProductToMemberCart(string pID, string mID)
 {
-	int pFlag = 0;	// Product flag
-	int mFlag = 0;	// Member flag
-
-	// iterate through inventory looking for pID, Product
-	for (int i = 0; i < inventory.size(); i++)
-	{
-		// if product found set pFlag to 1
-		if (pID.compare(inventory[i]->getIdCode()) == 0)
-		{
-			pFlag = 1;
-			// iterate through members looking for mID
-			for (int j = 0; j < members.size(); j++)
-			{
-				// if member found, set mFlag to 1
-				if (mID.compare(members.at(j)->getAccountID()) == 0)
-				{
-					mFlag = 1;
-					// both product and member found, get quantity available
-					if (inventory[i]->getQuantityAvailable() > 0)
-					{
-						// if quantity available is greater than 0, add to member cart
-						members.at(j)->addProductToCart(pID);
-					}
-					else
-					// quantity is 0, product not available
-					{
-						cout << "Sorry, product #[" << inventory[i]->getIdCode();
-						cout << "] is currently out of stock." << endl;
-					}
-				}
-			}
-			// product found but customer is not a member
-			if (mFlag == 0)
-			{
-				cout << "Member #[" << mID << "] not found." << endl;
-			}
-		}
-	}
-	// product is not in our inventory
-	if (pFlag == 0)
+	// if product not found, print error and return
+	Product *p = getProductFromID(pID);
+	if (p == NULL)
 	{
 		cout << "Product #[" << pID << "] not found." << endl;
+		return;
+	}
+	// if customer is not found, print error and return
+	Customer *c = getMemberFromID(mID);
+	if (c == NULL)
+	{
+		cout << "Member #[" << mID << "] not found." << endl;
+		return;
+	}
+	// if product has available units, add to customer cart
+	if (p->getQuantityAvailable() > 0)
+	{ 
+		c->addProductToCart(pID);
+	}
+	// else product inventory is equal to 0
+	else
+	{
+		cout << "Sorry, product #[" << pID;
+		cout << "] is currently out of stock." << endl;
 	}
 }
 
