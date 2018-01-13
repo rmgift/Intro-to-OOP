@@ -1,0 +1,26 @@
+Assignment-8b Description
+
+Write a class called CustomerProject.  It should have three double fields called hours 
+(the number of hours the project took), materials (the cost of materials) and 
+transportation (transportation costs), in that order.  It should have get and set methods 
+for each field.  It should have a constructor that takes as parameters the values for 
+each field and calls the set methods to initialize them.  It should have a pure virtual 
+function called billAmount that takes no parameters and returns a double.
+
+Write two classes that inherit from CustomerProject: RegularProject and PreferredProject.  
+Both should have a constructor that takes three doubles and passes them to the base class 
+constructor.  RegularProject should override billAmount to return the sum of the materials 
+costs, the transportation costs, and $80 times the number of hours.  PreferredProject 
+(for preferred customers) should override billAmount to return the sum of 85% of the
+ materials costs, 90% of the transportation costs, and $80 times the number of hours up to 
+ a maximum of 100 hours (any hours beyond 100 are free).
+
+Hint: You can access the member data of the base class either of two ways: 1) make that 
+member data protected in the base class, or 2) simply use the get methods, which the 
+derived classes have inherited.
+
+There are no input validation or output formatting requirements.
+
+The files must be called: 
+CustomerProject.hpp, CustomerProject.cpp, RegularProject.hpp, RegularProject.cpp, 
+PreferredProject.hpp, and PreferredProject.cpp.
