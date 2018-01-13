@@ -1,0 +1,18 @@
+Assignment 7.a Description
+
+Write a class called Rectangle with double fields for its length and width.  
+It should have set methods for both fields.  It should have a constructor that 
+takes two double parameters and passes them to the set methods.  It should also 
+have a method called area that returns the area of the Rectangle and a method 
+called perimeter that returns the perimeter of the Rectangle.
+
+Write a class called Square that inherits from Rectangle.  It should have a 
+constructor that takes one double parameter and passes it to the base class 
+constructor for both parameters (the body of the constructor will be empty).  
+Square will also need to override the setLength() and setWidth() functions of 
+its base class such that if either of its dimensions is set to a new value, 
+then both of its dimensions will be set to that new value (so that it remains 
+a square).  Hint: you can have the overridden versions call the versions in the 
+base class.
+
+The files must be called: Rectangle.hpp, Rectangle.cpp, Square.hpp and Square.cpp
