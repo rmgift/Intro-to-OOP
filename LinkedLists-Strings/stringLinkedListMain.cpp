@@ -1,7 +1,7 @@
 /*************************************************************************
 Author: Ryan Gift
 Date: 03/09/2017
-Description: 
+Description: This file was not submitted with assignment as teacher tested
 *************************************************************************/
 #include <iostream>
 #include "stringLinkedList.hpp"
