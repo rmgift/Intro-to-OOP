@@ -1,3 +1,4 @@
+/* implements the basics of creating a recursive function */
 #include <iostream>
 
 using namespace std;
@@ -19,7 +20,7 @@ void draw_rect_iter(int i)
 
 void draw_rect_recur(int i)
 {
-	// iterative solution
+	// recursive solution
 	if (i>0)
 	{
 		draw_rect_recur(--i);		// the () could also hold (i - 1)
